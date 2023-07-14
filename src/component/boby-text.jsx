@@ -64,24 +64,25 @@ const BodyText=(props)=>{
     <>
      <div className='text-item'>
         <button className='parastate' onClick={()=>{setParaState(prevstate=>!prevstate)}}>スタイル変更&nbsp;
-        <motion.div className='allow' animate={{rotate:pararotate}}
-         ></motion.div></button>
+            <motion.div className='allow' animate={{rotate:pararotate}}></motion.div>
+        </button>
             {paraState ? (
                 <div className='parameter'>
 
-                        <div style={{fontSize:'20px'}}>{props.text}の回転&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div  className='paratxrey'>回転&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input  onChange={(event)=>rotateChange(event)}
                             type='number' min='0' max='360'
                             value={rotation} 
                             />
 
-                            <input  onChange={(event)=>{rotateChange(event)}}
+                            <input
+                            onChange={(event)=>{rotateChange(event)}}
                             type='range' min='0' max='360'step='1'
                             value={rotation}
                             />
                         </div>
 
-                        <div style={{fontSize:'20px'}}>{props.text}の大きさ&nbsp;&nbsp;&nbsp;
+                        <div  className='paratxrey'>大きさ&nbsp;&nbsp;&nbsp;
                             <input onChange={(event)=>sizeChange(event)}
                             type='number' min='1' max='30'
                             value={fontSize}
@@ -93,7 +94,7 @@ const BodyText=(props)=>{
                             />
                         </div>
 
-                        <div style={{fontSize:'20px'}}>{props.text}のフォント
+                        <div  className='paratxrey'>フォント
                             {fontfamily.map((value)=>{
                                 return(
                                     <button className='fontbtn' onClick={()=>fontChange(value)}

@@ -32,37 +32,37 @@ const Body=()=>{
 
     return(
         <main className="App-body" >
-            <div className='textparent'>
-                
-                <button className='genebtn' onClick={countUp}>文字生成</button>
-                <button className='genebtn' onClick={countDown}>削除</button>
-            </div>
+            <div className='textrey'>
+                <div className='textparent'>  
+                    <button className='genebtn' onClick={countUp}>文字生成</button>
+                    <button className='genebtn' onClick={countDown}>削除</button>
+                </div>
 
-            <div className='body-item'>
-                {textlist.map((text,index)=>{
-                    return(
-                        <>
-                            <div className='text-item' key={index}>
-                                <input className='textlist'
-                                    onChange={(event)=>textValue(event,index)}
-                                    type='text'
-                                    value={text}
+                <div className='body-item'>
+                    {textlist.map((text,index)=>{
+                        return(
+                            <>
+                                <div className='text-item' key={index}>
+                                    <input className='textlist'
+                                        onChange={(event)=>textValue(event,index)}
+                                        type='text'
+                                        value={text}
+                                    />
+                                </div>
+                                
+                                <BodyText 
+                                    text={text}
+                                    bodyRef={bodyRef}
+                                    textlist={textlist.length}
                                 />
-                            </div>
-                            
-                            <BodyText 
-                                text={text}
-                                bodyRef={bodyRef}
-                                textlist={textlist.length}
-                            />
-                      </>
-                    )
-                })}
-                 
+                        </>
+                        )
+                    })}
+                    
+                </div>
+                
+                <div className='canvas' ref={bodyRef}>canvas</div>
             </div>
-            
-            <div className='canvas' ref={bodyRef}>canvas</div>
-            
         </main>
     );
 }
