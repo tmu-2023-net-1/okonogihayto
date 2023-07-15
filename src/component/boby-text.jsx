@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from 'react';
+import React,{ useState,useEffect,useRef } from 'react';
 import {motion} from 'framer-motion';
 import { CompactPicker } from 'react-color';
 
@@ -24,7 +24,8 @@ const BodyText=(props)=>{
     }
 
     const sizeChange=(event)=>{
-            setFontSize(event.target.value)     
+            setFontSize(event.target.value) 
+            props.canvas(event.target.value)    
     }
 
     const fontChange=(value)=>{
@@ -60,6 +61,7 @@ const BodyText=(props)=>{
 
     },[paraState][colorPalletOpen])
  
+
     return(
     <>
      <div className='text-item'>
@@ -123,6 +125,7 @@ const BodyText=(props)=>{
      </div>
      
         <motion.div className='text-move'
+                   ref={props.elm}
             animate={{
                     rotate:rotation,
                     scale:fontSize,
@@ -130,9 +133,11 @@ const BodyText=(props)=>{
                     color:fontColor 
                 }}
             drag
+            
+            dragMomentum={false}
             dragConstraints={props.bodyRef}
             whileHover={{
-                scale:fontSize*1.5,
+                scale:fontSize*1.2,
                 transition:{duration:0.5},
            
             }}>

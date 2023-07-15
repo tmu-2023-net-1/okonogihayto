@@ -1,4 +1,4 @@
-import React,{ useState,useRef } from 'react';
+import React,{ useState,useRef, useEffect } from 'react';
 import BodyText from './boby-text';
 
 
@@ -6,8 +6,14 @@ const Body=()=>{
 
     const [createtext,setCreatetext]=useState(0)
     const [textlist,setTextlist]=useState([])
-    const bodyRef = useRef();
-
+    const [canvassize,setCanvassize]=useState(3);
+    let canvaswidth=100-(canvassize*1.3);
+    let canvasheight=100-(canvassize*1.3);
+    let canvasleft=50+(canvassize*1.3)/2;
+    let canvastop=50+(canvassize*1.3)/2;
+    const elm = useRef(null);
+    const bodyRef = useRef(null);
+    
     const countUp=()=>{
         const updatedText = createtext + 1;
         setCreatetext(updatedText)
@@ -26,12 +32,28 @@ const Body=()=>{
         updatedList[index] = event.target.value;
         setTextlist(updatedList);
     }
+    
+    const sizeValue=(size)=>{
+        setCanvassize(size)
+    }
 
-    let textcount=(<div>{createtext}</div>);
-    console.log(textlist);
+   /* const calConst=()=>{
+        if (elm.current && bodyRef.current) {
+        const elmRect=elm.current.getBoundingClientRect();
+        const bodyRect=bodyRef.current.getBoundingClientRect();
+        const top = -elmRect.top+bodyRect.top;
+        const right =bodyRect.right-elmRect.right;
+        const bottom =bodyRect.bottom-elmRect.bottom;
+        const left = -elmRect.left+bodyRect.left;
+        return{top, right, bottom, left };
+        }
+    }*/
 
+    
     return(
+        
         <main className="App-body" >
+            
             <div className='textrey'>
                 <div className='textparent'>  
                     <button className='genebtn' onClick={countUp}>文字生成</button>
@@ -54,6 +76,11 @@ const Body=()=>{
                                     text={text}
                                     bodyRef={bodyRef}
                                     textlist={textlist.length}
+                                    canvas={sizeValue}
+                                    elm={elm}
+                                    //calConst={calConst()}
+                                    
+                                    
                                 />
                         </>
                         )
@@ -61,8 +88,21 @@ const Body=()=>{
                     
                 </div>
                 
-                <div className='canvas' ref={bodyRef}>canvas</div>
+                <div  className='canvas'><p style={{position:'absolute',top:'-40px'}}>canvas</p>
+                <div className='body-layer'
+                        ref={bodyRef}
+                        style={{
+                            width:`${canvaswidth}%`,
+                            height:`${canvasheight}%`,
+                            left:`${canvasleft}%`,
+                            top:`${canvastop}%`
+                            }} 
+                        ></div>
+                </div>
+               
+               
             </div>
+           
         </main>
     );
 }
