@@ -19,13 +19,13 @@ const BodyText=(props)=>{
         if(!isNaN(value)){
         setRotation(value)
         }else {
-            setRotation(0)
+        setRotation(0)
         }     
     }
 
     const sizeChange=(event)=>{
             setFontSize(event.target.value) 
-            props.canvas(event.target.value)    
+           
     }
 
     const fontChange=(value)=>{
@@ -61,13 +61,15 @@ const BodyText=(props)=>{
 
     },[paraState][colorPalletOpen])
  
-
+   
     return(
     <>
      <div className='text-item'>
-        <button className='parastate' onClick={()=>{setParaState(prevstate=>!prevstate)}}>スタイル変更&nbsp;
-            <motion.div className='allow' animate={{rotate:pararotate}}></motion.div>
-        </button>
+
+     <button className='parastate' onClick={()=>{setParaState(prevstate=>!prevstate)}}>スタイル変更&nbsp;
+                                                        <motion.div className='allow' animate={{rotate:pararotate}}></motion.div>
+                                                    </button>
+        
             {paraState ? (
                 <div className='parameter'>
 
@@ -78,7 +80,7 @@ const BodyText=(props)=>{
                             />
 
                             <input
-                            onChange={(event)=>{rotateChange(event)}}
+                            onChange={(event) => rotateChange(event)}
                             type='range' min='0' max='360'step='1'
                             value={rotation}
                             />
@@ -123,7 +125,7 @@ const BodyText=(props)=>{
                 <></>
             )}
      </div>
-     
+    
         <motion.div className='text-move'
                    ref={props.elm}
             animate={{

@@ -16,20 +16,27 @@ body{
   font-size: calc(15px + 1vmin);
   text-align: left;
   color: rgb(0, 0, 0);
+  border-radius: 10px;
   
  
 }
-.header-text{
-  
+.header-text{ 
   display: flex;
   position: relative;
   font-size: 2em;
   font-weight:bolder;
   top:30%;
   width:fit-content;
-  left:2.5%;
-  
-
+  left:2.5%; 
+}
+.subtitle{
+  text-align: right;
+  font-size:  calc(12px + 1vmin);
+  position: relative;
+  width:100%;
+  top:40%;
+  right:2.5%;
+  color:gray;
 }
 
 /*about*/
@@ -63,17 +70,22 @@ body{
 }
 
 .body-item{
-  
+  z-index:10;
+ 
   display: flex;
   position: relative;
   flex-direction: column;
+  width: 30%;
   
+  
+  border-radius: 10px;
 }
 .text-item{  
- 
+  position: relative;
  background-color: #f0eded;
-  width:30%;
-  padding-bottom: 10px;
+  width:100%;
+  padding-bottom: 30px;
+  
  
 }
 .genebtn{
@@ -98,7 +110,7 @@ body{
   flex-direction: column;
   width: 2em;
   height: 30px;
-  margin-top: 0.3em;
+  
   margin-left: 5px;
   font-size: 3em;
   border-radius: 5px;
@@ -109,21 +121,21 @@ input[type='text']{
 }
 
 .canvas{
-  z-index: 4;
+  z-index: 1;
   color:black;
   display:flex;
   position: absolute;
   left:35%;
   top:100px;
   width: 60%;
-  min-height: 70vh;
+  min-height: 500px;
   background-color: rgba(250, 249, 243, 0.546);
   border:1px solid rgb(3, 3, 3);
   border-radius: 5px;
 
 }
 .body-layer{
-  border:1px solid rgb(201, 85, 85);
+  
   position:absolute;
   margin-left:-50%;
   margin-top:-35vh;
@@ -149,10 +161,10 @@ input[type='text']{
 
 .text-move{
  
-  z-index: 5;
+  z-index: 2;
   position: absolute;
-  left:65%;
-  top:300px;
+  left:215%;
+  top:250px;
   width: fit-content;
   height:10px;
   line-height:7px;
@@ -163,7 +175,7 @@ input[type='text']{
   position: relative;
   height: 30px;
   width:120px;
-  top:-43px;
+  top:-62px;
   left:120px;
   background-color: #282828;
   color:white;
@@ -182,7 +194,7 @@ input[type='text']{
   flex-direction: column;
   width: 75%;
   min-width: 100px;
-  margin-top: -15px;
+  margin-top: -50px;
   color:black;
   padding: 5px;
   border-radius: 5px;
@@ -226,7 +238,7 @@ input[type='text']{
  
 
  .pallet{
-  z-index: 10;
+  z-index: 3;
   display: flex;
   position: relative;
   width: 100%;
@@ -259,7 +271,7 @@ input[type='text']{
   background-color: #ffffff00;
   
   min-height: 15vh;
-  font-size: calc(10px + 1vmin);
+  font-size: calc(7px + 1vmin);
   color: rgb(71, 71, 71);
   text-align: center;
   padding-top: 10px;

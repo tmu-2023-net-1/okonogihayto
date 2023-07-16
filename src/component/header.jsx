@@ -7,8 +7,7 @@ const Header=()=>{
   }
 return(
  <header className="App-header">
-   <div className='header-text'>
-        
+   <div className='header-text'>     
          <motion.div
              animate={{ x: '0px',y:'0px' ,rotate: 0}}
              transition={{ delay:1,duration: 5,type:'spring',bounce:0.5 }}
@@ -30,12 +29,10 @@ return(
          >
          </motion.div>
             
-
          <motion.div
             variants={textanime}
             initial='ini'
             animate='anime'
-
          >
          </motion.div>
 
@@ -59,10 +56,15 @@ return(
             initial={{x:150,y:0,rotate:720}}
             animate={{x:0, rotate:[720,0]}}
             transition={{delay:1,duration:5}}
-
          >び
          </motion.div>
    </div>
+   <motion.div className='subtitle'
+      initial={{opacity:0}}
+      transition={{delay:1,duration:5}}
+      animate={{opacity:1}}
+
+   >タイポグラフィアート</motion.div>
  </header>
 );
 }

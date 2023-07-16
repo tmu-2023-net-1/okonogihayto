@@ -1,18 +1,25 @@
 import React,{ useState,useRef, useEffect } from 'react';
 import BodyText from './boby-text';
+import {motion} from 'framer-motion';
 
 
 const Body=()=>{
 
     const [createtext,setCreatetext]=useState(0)
     const [textlist,setTextlist]=useState([])
-    const [canvassize,setCanvassize]=useState(3);
-    let canvaswidth=100-(canvassize*1.3);
-    let canvasheight=100-(canvassize*1.3);
-    let canvasleft=50+(canvassize*1.3)/2;
-    let canvastop=50+(canvassize*1.3)/2;
+/*
+    const [rotation,setRotation]=useState(100);
+    const [fontSize,setFontSize]=useState(3);
+    const fontfamily=['serif','sans-serif','cursive'];
+    const [selectedfont,setSelectedfont]=useState('sans-serif');
+    const [fontColor,setFontColor]=useState('rgba(0,0,0,1)');
+
+    const [rotationList, setRotationList] = useState([]);
+  */
+    
+
     const elm = useRef(null);
-    const bodyRef = useRef(null);
+    const bodyRef = useRef();
     
     const countUp=()=>{
         const updatedText = createtext + 1;
@@ -33,23 +40,7 @@ const Body=()=>{
         setTextlist(updatedList);
     }
     
-    const sizeValue=(size)=>{
-        setCanvassize(size)
-    }
-
-   /* const calConst=()=>{
-        if (elm.current && bodyRef.current) {
-        const elmRect=elm.current.getBoundingClientRect();
-        const bodyRect=bodyRef.current.getBoundingClientRect();
-        const top = -elmRect.top+bodyRect.top;
-        const right =bodyRect.right-elmRect.right;
-        const bottom =bodyRect.bottom-elmRect.bottom;
-        const left = -elmRect.left+bodyRect.left;
-        return{top, right, bottom, left };
-        }
-    }*/
-
-    
+   
     return(
         
         <main className="App-body" >
@@ -64,44 +55,33 @@ const Body=()=>{
                     {textlist.map((text,index)=>{
                         return(
                             <>
+                            
                                 <div className='text-item' key={index}>
-                                    <input className='textlist'
-                                        onChange={(event)=>textValue(event,index)}
-                                        type='text'
-                                        value={text}
-                                    />
+                                    
+                                            <input className='textlist'
+                                                onChange={(event)=>textValue(event,index)}
+                                                type='text'
+                                                value={text}
+                                            />           
                                 </div>
-                                
                                 <BodyText 
                                     text={text}
                                     bodyRef={bodyRef}
                                     textlist={textlist.length}
-                                    canvas={sizeValue}
                                     elm={elm}
-                                    //calConst={calConst()}
-                                    
-                                    
-                                />
+                                    />
+                                
+                             
                         </>
                         )
                     })}
                     
                 </div>
-                
-                <div  className='canvas'><p style={{position:'absolute',top:'-40px'}}>canvas</p>
-                <div className='body-layer'
-                        ref={bodyRef}
-                        style={{
-                            width:`${canvaswidth}%`,
-                            height:`${canvasheight}%`,
-                            left:`${canvasleft}%`,
-                            top:`${canvastop}%`
-                            }} 
-                        ></div>
-                </div>
                
+                <div  ref={bodyRef} className='canvas'><p style={{position:'absolute',top:'-40px'}}>canvas</p></div>
                
             </div>
+
            
         </main>
     );
