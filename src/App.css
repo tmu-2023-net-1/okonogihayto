@@ -121,7 +121,7 @@ input[type='text']{
 }
 
 .canvas{
-  z-index: 1;
+  z-index: 2;
   color:black;
   display:flex;
   position: absolute;
@@ -133,12 +133,6 @@ input[type='text']{
   border:1px solid rgb(3, 3, 3);
   border-radius: 5px;
 
-}
-.body-layer{
-  
-  position:absolute;
-  margin-left:-50%;
-  margin-top:-35vh;
 }
 
 
@@ -160,14 +154,15 @@ input[type='text']{
 /*body-text*/
 
 .text-move{
- 
+
   z-index: 2;
   position: absolute;
   left:215%;
   top:250px;
   width: fit-content;
-  height:10px;
-  line-height:7px;
+  line-height: 10px;
+  white-space: nowrap;
+  
 }
 
 .parastate{
@@ -277,7 +272,10 @@ input[type='text']{
   padding-top: 10px;
   
 }
-
+.body-layer{
+  position: absolute;
+  
+}
 
 @media (max-width:850px){
   .parastate{

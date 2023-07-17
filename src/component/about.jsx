@@ -21,7 +21,8 @@ const About=()=>{
                 <p>
                 ・フルスクリーンで遊ぶことをお勧めします。また、遊んでいる最中にウィンドウのサイズを変更すると、文字の位置がずれる場合があります。</p>
                 <h3>サンプル</h3>
-                <img src='typosample.png' alt="sannpuru"></img>
+                <img style={{marginBottom:'30px'}} src='typosample2.png' alt="sample"></img>
+                <img src='typosample.png' alt="sannple"></img>
                 
             </div>
         </div>

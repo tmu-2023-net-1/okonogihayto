@@ -14,6 +14,7 @@ const BodyText=(props)=>{
     const [onceClose,setOnceClose]=useState(true);
     const [pararotate,setPararotate]=useState(-135);
     const [colbtnrota,setColobtnrota]=useState(-135);
+    
     const rotateChange=(event)=>{
         const value=parseFloat(event.target.value);
         if(!isNaN(value)){
@@ -25,6 +26,7 @@ const BodyText=(props)=>{
 
     const sizeChange=(event)=>{
             setFontSize(event.target.value) 
+            props.canvas(event.target.value)    
            
     }
 
@@ -60,6 +62,13 @@ const BodyText=(props)=>{
         }
 
     },[paraState][colorPalletOpen])
+
+    useEffect(() => {
+        if (props.text) {
+          props.bodyRef.current.getBoundingClientRect(); // 要素のサイズと位置を取得して再計算
+        }
+      });
+    
  
    
     return(
@@ -127,7 +136,7 @@ const BodyText=(props)=>{
      </div>
     
         <motion.div className='text-move'
-                   ref={props.elm}
+                  
             animate={{
                     rotate:rotation,
                     scale:fontSize,
@@ -136,7 +145,7 @@ const BodyText=(props)=>{
                 }}
             drag
             
-            dragMomentum={false}
+           
             dragConstraints={props.bodyRef}
             whileHover={{
                 scale:fontSize*1.2,

@@ -7,15 +7,22 @@ const Body=()=>{
 
     const [createtext,setCreatetext]=useState(0)
     const [textlist,setTextlist]=useState([])
-/*
-    const [rotation,setRotation]=useState(100);
-    const [fontSize,setFontSize]=useState(3);
+
+    const [canvassize,setCanvassize]=useState(3);
+    
+    let canvaswidth=100-(canvassize*1.1);
+    let canvasheight=100-(canvassize*1.1);
+    let canvasleft=+(canvassize*1.1)/2;
+    let canvastop=+(canvassize*1.1)/2;
+
+   // const [rotation,setRotation]=useState(Number);
+  /*  const [fontSize,setFontSize]=useState(3);
     const fontfamily=['serif','sans-serif','cursive'];
     const [selectedfont,setSelectedfont]=useState('sans-serif');
     const [fontColor,setFontColor]=useState('rgba(0,0,0,1)');
-
-    const [rotationList, setRotationList] = useState([]);
-  */
+*/
+   // const [rotationList, setRotationList] = useState(['']);
+  
     
 
     const elm = useRef(null);
@@ -39,13 +46,37 @@ const Body=()=>{
         updatedList[index] = event.target.value;
         setTextlist(updatedList);
     }
-    
-   
-    return(
-        
-        <main className="App-body" >
-            
+
+    const sizeValue=(size)=>{
+        setCanvassize(size)
+    }
+   /* const rotationValue=(event)=>{
+        const value=Number(parseFloat(event.target.value));
+        if(!isNaN(value)){
+        setRotation(value)
+        }else {
+        setRotation(0)
+        }
+    }
+    console.log(textlist)
+   console.log(rotationList)
+   */
+    return(     
+        <main  className="App-body" >   
             <div className='textrey'>
+                <div  className='canvas'>
+                    <p style={{position:'absolute',top:'-40px'}}>canvas</p>
+                        <div className='body-layer'
+                                ref={bodyRef}
+                                style={{
+                                        width:`${canvaswidth}%`,
+                                        height:`${canvasheight}%`,
+                                        left:`${canvasleft}%`,
+                                        top:`${canvastop}%`
+                                }} 
+                            >    
+                        </div>
+                </div>
                 <div className='textparent'>  
                     <button className='genebtn' onClick={countUp}>文字生成</button>
                     <button className='genebtn' onClick={countDown}>削除</button>
@@ -69,19 +100,20 @@ const Body=()=>{
                                     bodyRef={bodyRef}
                                     textlist={textlist.length}
                                     elm={elm}
-                                    />
-                                
-                             
+                                    canvas={sizeValue}
+                                    
+                                    />                                         
                         </>
                         )
                     })}
                     
                 </div>
                
-                <div  ref={bodyRef} className='canvas'><p style={{position:'absolute',top:'-40px'}}>canvas</p></div>
+               
                
             </div>
 
+           
            
         </main>
     );
