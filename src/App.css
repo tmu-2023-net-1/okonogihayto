@@ -54,7 +54,9 @@ body{
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
+img{
+  align-self: center;
+}
 
 /*main*/
 .App-body {
@@ -128,7 +130,7 @@ input[type='text']{
   left:35%;
   top:100px;
   width: 60%;
-  min-height: 500px;
+  height: 500px;
   background-color: rgba(250, 249, 243, 0.546);
   border:1px solid rgb(3, 3, 3);
   border-radius: 5px;
@@ -279,12 +281,22 @@ input[type='text']{
 
 @media (max-width:850px){
   .parastate{
-  top:0;
+  top:-30px;
   left:5px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   }
   input[type='range']{
     width:100px;
   }
+  img{
+    width:100%;
+   
+  }
+  
 
+}
+@media (max-height:550px){
+  .canvas{
+    height:70%;
+  }
 }
