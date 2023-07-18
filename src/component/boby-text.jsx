@@ -1,4 +1,4 @@
-import React,{ useState,useEffect,useRef } from 'react';
+import React,{ useState,useEffect } from 'react';
 import {motion} from 'framer-motion';
 import { CompactPicker } from 'react-color';
 
@@ -14,7 +14,7 @@ const BodyText=(props)=>{
     const [onceClose,setOnceClose]=useState(true);
     const [pararotate,setPararotate]=useState(-135);
     const [colbtnrota,setColobtnrota]=useState(-135);
-    
+
     const rotateChange=(event)=>{
         const value=parseFloat(event.target.value);
         if(!isNaN(value)){
@@ -43,9 +43,8 @@ const BodyText=(props)=>{
         if(props.textlist>5 && onceClose){
          setParaState(false)
          setOnceClose(false)
-         console.log(onceClose)
             }
-        },[props.textlist])
+    },[props.textlist])
     
     useEffect(()=>{
         if(paraState){
@@ -65,9 +64,9 @@ const BodyText=(props)=>{
 
     useEffect(() => {
         if (props.text) {
-          props.bodyRef.current.getBoundingClientRect(); // 要素のサイズと位置を取得して再計算
+          props.bodyRef.current.getBoundingClientRect(); 
         }
-      });
+        });
     
  
    

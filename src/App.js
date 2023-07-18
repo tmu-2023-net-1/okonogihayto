@@ -1,9 +1,9 @@
 
 import './App.css';
 import Header from './component/header';
-import About from './component/about';
 import Body from './component/body';
 import Footer from './component/footer';
+import AboutBtn from './component/about-btn';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <body>       
         <Header />
 
-        <About />
+        <AboutBtn />
 
         <Body />
 

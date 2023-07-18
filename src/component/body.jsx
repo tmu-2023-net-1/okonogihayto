@@ -1,6 +1,6 @@
-import React,{ useState,useRef, useEffect } from 'react';
+import React,{ useState,useRef } from 'react';
 import BodyText from './boby-text';
-import {motion} from 'framer-motion';
+
 
 
 const Body=()=>{
@@ -95,6 +95,7 @@ const Body=()=>{
                                                 value={text}
                                             />           
                                 </div>
+
                                 <BodyText 
                                     text={text}
                                     bodyRef={bodyRef}
@@ -102,19 +103,12 @@ const Body=()=>{
                                     elm={elm}
                                     canvas={sizeValue}
                                     
-                                    />                                         
-                        </>
+                                />                                         
+                            </>
                         )
-                    })}
-                    
-                </div>
-               
-               
-               
-            </div>
-
-           
-           
+                    })}                
+                </div>                    
+            </div>              
         </main>
     );
 }
